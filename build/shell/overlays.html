@@ -1,0 +1,33 @@
+<div class="jump" id="jump" aria-label="Scroll"><button type="button" id="jump-up" aria-label="Back to top">↑</button><button type="button" id="jump-down" aria-label="Go to bottom">↓</button></div>
+<button class="notes-fab" id="notes-fab" type="button" aria-label="Open notepad"><span class="dotn"></span><span aria-hidden="true">✎</span><span class="lbl">Notes</span></button>
+
+<aside class="notes-drawer" id="notes-drawer" hidden aria-label="Notepad">
+  <div class="nd-head">
+    <div><h3>Notepad</h3><div class="nd-ctx" id="nd-ctx"></div></div>
+    <button class="nd-x" id="nd-close" type="button" aria-label="Close notepad">×</button>
+  </div>
+  <div class="nd-tabs"><button type="button" class="on" data-t="this">This chapter</button><button type="button" data-t="all">All notes</button></div>
+  <div class="nd-quick" id="nd-quick">
+    <button type="button" data-ins="★ Exam hint: ">★ Exam hint</button>
+    <button type="button" data-ins="? Ask prof: ">? Ask</button>
+    <button type="button" data-ins="Example: ">Example</button>
+    <button type="button" data-ins="Def: ">Def</button>
+  </div>
+  <textarea class="nd-area" id="nd-area" placeholder="Type while the prof talks. It saves as you go." spellcheck="true"></textarea>
+  <div class="nd-list" id="nd-list" hidden></div>
+  <div class="nd-foot" id="nd-foot"><button class="btn" id="nd-copy" type="button">Copy</button><span id="nd-count"></span><span id="nd-status">Saved on this device</span></div>
+</aside>
+
+<div class="exam" id="exam" hidden role="dialog" aria-modal="true" aria-label="Exam mode">
+  <div class="ex-wrap">
+    <div class="ex-top"><h2 id="ex-title">Exam mode</h2><button class="btn" id="ex-close" type="button">Close</button></div>
+    <div id="ex-body"></div>
+  </div>
+</div>
+
+<div class="exam sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-label="Cheat sheet">
+  <div class="ex-wrap">
+    <div class="ex-top"><h2 id="sh-title">Cheat sheet</h2><button class="btn" id="sh-close" type="button">Close</button></div>
+    <div id="sh-body"></div>
+  </div>
+</div>
