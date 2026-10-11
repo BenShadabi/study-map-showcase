@@ -31,6 +31,12 @@ A single-page study app I built with Claude for my Semester 5 courses at George 
 - **Playwright scripts** in `tools/` check the finished page (downloads, jump buttons, all panels).
 - Design notes are in [docs/02-design-system.md](docs/02-design-system.md). The logic behind each feature is in [docs/03-features-and-how-they-work.md](docs/03-features-and-how-they-work.md).
 
+## Limits and next steps
+
+- Progress is saved in each browser, so it does not sync between phone and laptop yet. An export/import button is next.
+- The chapter content is private, so this public copy does not build on its own.
+- Next: a day-by-day study plan based on test dates and readiness, and more real-life and work examples after each section.
+
 ## What is in this repo
 
 ```
