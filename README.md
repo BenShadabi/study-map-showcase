@@ -4,6 +4,12 @@ A single-page study app I built with Claude for my Semester 5 courses at George 
 
 ![Plan tab](docs/img/new_plan_today.png)
 
+## Why I built it
+
+- **To save time.** Every course has its own slides and its own textbook. I wanted all of them in one place instead of jumping between files before every test.
+- **To make ideas stick.** After each part of a chapter I wanted real-life and work examples, so the material is useful beyond the exam.
+- **To keep my plans in the same place.** The plan tab tracks deadlines, test dates, readiness and weak spots, so I always know what to study today and what is the best use of my time.
+
 ## What it does
 
 - **22 chapter panels** across 5 courses (Microeconomics, Marketing, HR Management, Search Analytics, Philosophy). Each has learning goals, definitions, examples, exam traps, worked examples with hidden steps, flashcards and SVG diagrams.
