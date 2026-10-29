@@ -2,7 +2,11 @@
 import re,sys,os,collections
 B=os.path.dirname(os.path.abspath(__file__))
 c,w=sys.argv[1],sys.argv[2]
-s=open(f'{B}/new/{c}/{w}.html',encoding='utf-8').read()
+import sys as _s; _s.path.insert(0,B+'/../tools')
+_t=f'{B}/new/{c}/{w}.txt'
+if os.path.exists(_t):   # compact source: compile it, then run the same checks
+    import panelc; s=panelc.compile_text(open(_t,encoding='utf-8').read())
+else: s=open(f'{B}/new/{c}/{w}.html',encoding='utf-8').read()
 bad=0
 def err(m):
     global bad; bad+=1; print('FAIL',m)

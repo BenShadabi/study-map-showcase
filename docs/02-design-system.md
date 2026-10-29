@@ -28,7 +28,7 @@ Microeconomics blue, Marketing orange, HR aqua, Search Analytics green, Philosop
 - **Question** (`.q`): types mcq / short / apply / explain; confidence row on MCQ.
 - **Plan rows**: `.tstep` (today), `.dl-row` (deadlines), `.weak-row` (weak spots).
 - **Overlays**: Exam mode (`.exam`), Cheat sheet (`#sheet`), Notes drawer, course menu.
-- **Jump buttons** (`.jump`): fixed, above the Notes button.
+- **Bottom-right stack:** Notes at the bottom, **Ask AI** (`#ask-fab`) directly above it, then the scroll-to-top button (`.jump`, no scroll-to-bottom button). On phones these are three round buttons. The top bar has no Ask AI button any more.
 
 ## Responsive rules
 - 16px side gutter, no horizontal page scroll at 390px.

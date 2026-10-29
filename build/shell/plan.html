@@ -4,7 +4,7 @@
       <div>
         <div class="eyebrow">Study plan</div>
         <h1>What to study today, and how</h1>
-        <p class="lede">What to do today, your readiness for each test, the topics you keep missing, and the study method this map is built around.</p>
+        <p class="lede">What to do today, your readiness for each test, the topics you keep missing, and ways to study each chapter.</p>
       </div>
       <div class="hero-chip" id="plan-saved"><span class="dot"></span><span id="plan-saved-t">Progress saves on this device</span></div>
     </div>
@@ -40,26 +40,24 @@
       <div id="plan-weak-body"></div>
     </section>
 
-    <section id="plan-mastery">
-      <div class="section-head"><h2>Progress by chapter</h2></div>
-      <p class="section-sub">Tap a row to jump to that chapter. The bar fills as you answer its self-test questions correctly.</p>
-      <div class="mast-grid" id="plan-mast"></div>
-    </section>
-
-    <section id="plan-how">
-      <div class="section-head"><h2>The study method</h2></div>
-      <p class="section-sub">Five habits that have the strongest research backing, and where each one lives in this map.</p>
-      <div class="pb-grid">
-        <div class="pb"><span class="pb-n">1 · Test yourself</span><h3>Quiz before you re-read</h3><p>Pulling an answer out of your head beats reading the page again. Practice tests beat restudying across studies, and the gain still shows up a week later on new application questions when you do several rounds. It only works if you really try first, so write or say your answer before you reveal it.</p><p><b>Here:</b> the Self-test at the end of every chapter and Exam mode.</p><div class="ev">Evidence: <a href="https://consensus.app/papers/details/33b375207e2f535a8d027feebc9600a6/?utm_source=claude_desktop" target="_blank" rel="noopener">Adesope et al. 2017</a> (meta-analysis of practice testing), <a href="https://consensus.app/papers/details/648ba4caccd457dc9e3aa9ca22f95c43/?utm_source=claude_desktop" target="_blank" rel="noopener">Corral et al. 2025</a>, <a href="https://consensus.app/papers/details/aaa2c6507f6b555587b84e479baff921/?utm_source=claude_desktop" target="_blank" rel="noopener">Endres et al. 2015</a> (it helps when it takes effort).</div></div>
-        <div class="pb"><span class="pb-n">2 · Space it out</span><h3>Come back on day 1, 3, 7, 14</h3><p>Four short sessions beat one long cram. Classroom studies show a medium-sized gain for spaced practice, bigger when the gap before the test is longer. The "Due for review" counter does the scheduling for you.</p><p><b>Here:</b> the due counter above and the Plan chapter bars.</p><div class="ev">Evidence: <a href="https://consensus.app/papers/details/27d2cf70a0015535a8d39be4ff3ce10f/?utm_source=claude_desktop" target="_blank" rel="noopener">Mawson et al. 2025</a> (classroom meta-analysis, d = 0.54), <a href="https://consensus.app/papers/details/9c30e3b525e75451a2ae329f2c5dff45/?utm_source=claude_desktop" target="_blank" rel="noopener">Donoghue &amp; Hattie 2021</a> (practice testing and spacing ranked best of ten techniques).</div></div>
-        <div class="pb"><span class="pb-n">3 · Use concrete examples</span><h3>Pin every idea to a real case</h3><p>Abstract definitions stick better with concrete, real-world examples. After each definition, ask "what's one real company or situation where I'd see this?" The green Example boxes and the Business angle boxes are there for that.</p><p><b>Here:</b> Example and Business angle callouts in every chapter.</p><div class="ev">Evidence: <a href="https://consensus.app/papers/details/4f70a6b373c052c0864d492933c3da95/?utm_source=claude_desktop" target="_blank" rel="noopener">Micallef et al. 2022</a> (replication: concrete examples help learning of abstract concepts).</div></div>
-        <div class="pb"><span class="pb-n">4 · Work examples step by step</span><h3>Study solved problems, then try one</h3><p>When a topic is new, studying a worked solution teaches more than jumping into problems cold. Cover the answer, attempt it, then reveal one step at a time and explain to yourself why each step is there. Finish with the "Your turn" problem.</p><p><b>Here:</b> the Worked example blocks.</p><div class="ev">Evidence: <a href="https://consensus.app/papers/details/d59268ae831952f597db8ed574c9c1ed/?utm_source=claude_desktop" target="_blank" rel="noopener">Barbieri et al. 2023</a> (worked examples, g = 0.48), <a href="https://consensus.app/papers/details/c38ca4bd79c2589a938ce1724fda654a/?utm_source=claude_desktop" target="_blank" rel="noopener">Atkinson et al. 2003</a> (fading steps + explaining the principle).</div></div>
-        <div class="pb"><span class="pb-n">5 · Make it routine</span><h3>Lower the effort, keep the habit</h3><p>Most students already know self-testing works; they skip it because it feels costly. So keep sessions short (15 to 25 minutes), start with the questions that are due, and stop after one chapter. Underlining and summarizing ranked lowest of the ten techniques in the big meta-analysis, so spend your time elsewhere.</p><p><b>Here:</b> Review now button, Exam mode presets.</p><div class="ev">Evidence: <a href="https://consensus.app/papers/details/c16fe1e45c2755b595321d8cbf8afc58/?utm_source=claude_desktop" target="_blank" rel="noopener">Rea et al. 2022</a> (students recognize good strategies but don't use them), <a href="https://consensus.app/papers/details/7c827b6c7a475036a26179bdc82c2ce9/?utm_source=claude_desktop" target="_blank" rel="noopener">Weinstein et al. 2018</a> (six strategies review).</div></div>
-      </div>
+    <section id="plan-chapter">
+      <div class="section-head"><h2>Study a chapter</h2></div>
+      <p class="section-sub">Pick a chapter, then a way to study it. Each way is a loop of 3 steps. These are ways to study, not types of learner: anyone can use any of them, so pick by what the chapter needs.</p>
+      <div id="plan-chapter-body"></div>
+      <details class="lp-evi">
+        <summary>Why these ways, and not "learning styles"</summary>
+        <ul>
+          <li><b>No learner types.</b> Studies that tested "I am a visual (or auditory) learner" found that matching how you study to that label does not improve results. What helps is the method.</li>
+          <li><b>Every loop makes you pull answers from memory.</b> Quizzing yourself beats rereading, but it feels harder, so it can feel like it is not working. Trust the scores, not the feeling.</li>
+          <li><b>Every loop says come back tomorrow.</b> Short sessions on different days beat one long cram.</li>
+          <li><b>Examples help most when a topic is new.</b> Once you get them right easily, skip the example and just do questions.</li>
+        </ul>
+        <small>Based on Pashler et al. 2008, Karpicke et al. 2009, Kalyuga et al. 2001, Carpenter et al. 2022 and Tetzlaff et al. 2025.</small>
+      </details>
     </section>
 
     <section id="plan-loop">
-      <div class="section-head"><h2>A simple loop for each chapter</h2></div>
+      <div class="section-head"><h2>A weekly rhythm</h2></div>
       <div class="week-loop">
         <div class="wl"><b>In class</b><span>Open Notes (bottom right). Type fast, mark exam hints with ★ and anything unclear with ?.</span></div>
         <div class="wl"><b>Same day</b><span>Read the chapter once. Do the worked examples with the steps hidden.</span></div>

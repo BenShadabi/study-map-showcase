@@ -1,0 +1,95 @@
+// A tiny example panel that uses every block type. Copy the shape, not the words.
+# demo w1
+
+@lo
+- Say what scarcity is and give one example.
+- Work out an opportunity cost from a table.
+
+@meta
+Source :: Lecture 1 slides (12 slides)
+On Test 1 :: Oct 16
+Time :: about 30 min to read, 15 min for the self-test
+
+## intro | The big idea
+sub: Slides 3 to 6. Everything else in the chapter hangs off this.
+
+@flow
+Start | Scarcity | Not enough resources for everything people want.
+Forced by it | Choice | You have to pick.
+Result | Opportunity cost | What you gave up by picking.
+
+@def: **Economics** is how people use scarce resources to satisfy unlimited wants.
+@ex: Toronto housing. Land is limited, many people want it, so people pay more or live farther out.
+@ex[Class example · Applying Concepts 1-1]: **The cost of a degree.** Tuition plus the wages you don't earn.
+@trap: Money is not "capital" in this course. Capital means tools and equipment.
+@mem: LLC: **L**and, **L**abour, **C**apital.
+@tip[Heads up]: The exam asks you to *find* the opportunity cost, not only define it.
+@biz: A company with spare cash can buy back shares or build a warehouse. Picking one costs the other.
+@math: 9 × $1m + 6 × $0.5m = $12m ✓
+@say[Adam Smith, *The Wealth of Nations*]: "It is not from the benevolence of the butcher..."
+
+@h3 mt=22: A smaller heading inside a section
+@note: Small grey figure note (Figure 1-3, slide 15).
+A plain line is a normal paragraph. Use **bold** and *italic*.
+
+@table w
+| Factor | Meaning | Example |
+|---|---|---|
+| Land | Natural resources | The plot a cafe sits on |
+| Labour | Human effort | The barista |
+
+@cards mt=14
+### [icn: C] Consumers
+- What to buy, and how much?
+### [micro: Scarcity] Points e and f
+- Outside the boundary, so unattainable.
+- Not enough resources for both.
+
+@compare mt=16
+### [blue] Microeconomics
+- Prices of **specific** products.
+- Answers problems 1 and 2.
+### [orange] Macroeconomics
+- Economy-wide **aggregates**.
+- Answers problems 3 and 4.
+
+@worked What does a year of college cost?
+prob: Ana can study ($10,000 tuition) or work ($38,000). Rent is $14,000 either way. What is the cost of studying?
+1. Add what she pays because of the choice. :: Tuition: $10,000.
+2. Add what she gives up. :: Wages: $38,000.
+3. Ignore costs she pays anyway. :: Rent is the same either way.
+ans: About **$48,000**. || why: Counting only tuition makes the degree look five times cheaper.
+try: **Your turn.** A $6,000 scholarship. New cost? || $4,000 + $38,000 = **$42,000**.
+
+@fig budget max=560 mt=12
+
+## terms | Key terms
+// @flash auto = one card for every @def that starts with **Term** (first sentence is the back). Add extra cards by hand below it.
+@flash auto
+Scarcity :: Not enough resources to make everything people want.
+
+## selftest.selftest | Self-test
+sub: 4 questions. Try each before you reveal it.
+
+? mcq | 1 | factors
+Which of these is a **factor of production**?
+- The $5,000 in a company's bank account
++ A CN Rail locomotive
+- A share of Shopify stock
+> A locomotive is **capital**. Money and shares are financial claims, not tools.
+
+? multi | 2 | factors | src=Pearson style
+~ Pearson style
+Select all the factors of production.
++ Labour
++ Land
+- Money in a bank account
+> Land, labour and capital are the three factors.
+
+? num | 2 | opportunity cost | answer=1.5 | tol=0.01 | unit=coffees
+60 coffees or 40 sandwiches an hour. What does **one sandwich** cost, in coffees?
+> 60 ÷ 40 = **1.5 coffees**.
+
+? short | 2 | scarcity
+Explain why scarcity forces a choice.
+> **Model answer:** Wants are unlimited and resources are not, so picking one thing means giving up another.

@@ -49,7 +49,7 @@ Pulls questions from chosen courses and chapters and mixes them. Modes: mixed, d
 `go(course, week)` switches tab. The picker is a popup menu (`#coursetabs`). On a fresh device the default landing tab is Plan. Each course has an "Info & grades" tab built by `buildInfo`, which moves the grading and key dates out of the hero.
 
 ## Jump buttons
-Two fixed buttons (`#jump-up`, `#jump-down`) smooth-scroll to top or bottom and fade when there is nowhere to scroll.
+One fixed button (`#jump-up`) smooth-scrolls back to the top and fades when you are near the top. The scroll-to-bottom button was removed on request.
 
 ## Artifact sync
 `initDb()` only runs if `window.claude` exists (the Claude artifact runtime). It loads and saves progress to the artifact database so phone and laptop match. On a normal website it is skipped and localStorage is used.

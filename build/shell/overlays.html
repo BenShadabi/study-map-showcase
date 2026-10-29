@@ -1,4 +1,5 @@
-<div class="jump" id="jump" aria-label="Scroll"><button type="button" id="jump-up" aria-label="Back to top">↑</button><button type="button" id="jump-down" aria-label="Go to bottom">↓</button></div>
+<div class="jump" id="jump" aria-label="Scroll"><button type="button" id="jump-up" aria-label="Back to top">↑</button></div>
+<button class="draw-fab" id="draw-fab" type="button" aria-label="Draw on this page" title="Draw on this page"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="rotate(40 12 12)"><path d="M9.7 2.8h4.6a1.1 1.1 0 0 1 1.1 1.1V14H8.6V3.9a1.1 1.1 0 0 1 1.1-1.1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.6 14h6.8L12 21.2z" fill="currentColor"/></g></svg><span class="lbl">Draw</span></button>
 <button class="notes-fab" id="notes-fab" type="button" aria-label="Open notepad"><span class="dotn"></span><span aria-hidden="true">✎</span><span class="lbl">Notes</span></button>
 
 <aside class="notes-drawer" id="notes-drawer" hidden aria-label="Notepad">
@@ -6,7 +7,7 @@
     <div><h3>Notepad</h3><div class="nd-ctx" id="nd-ctx"></div></div>
     <button class="nd-x" id="nd-close" type="button" aria-label="Close notepad">×</button>
   </div>
-  <div class="nd-tabs"><button type="button" class="on" data-t="this">This chapter</button><button type="button" data-t="all">All notes</button></div>
+  <div class="nd-tabs"><button type="button" class="on" data-t="this">Type</button><button type="button" data-t="sketch">Sketch</button><button type="button" data-t="all">All notes</button></div>
   <div class="nd-quick" id="nd-quick">
     <button type="button" data-ins="★ Exam hint: ">★ Exam hint</button>
     <button type="button" data-ins="? Ask prof: ">? Ask</button>
@@ -14,6 +15,64 @@
     <button type="button" data-ins="Def: ">Def</button>
   </div>
   <textarea class="nd-area" id="nd-area" placeholder="Type while the prof talks. It saves as you go." spellcheck="true"></textarea>
+  <div class="sk" id="sk" hidden>
+    <div class="sk-box" id="sk-box"><canvas id="sk-cv" data-paper="grid" aria-label="Sketch page. Draw with Apple Pencil."></canvas></div>
+    <div class="sk-hint" id="sk-hint">Draw with Apple Pencil. To draw with your finger, turn Finger on.</div>
+    <div class="mk" id="mk" data-tool="pen" role="toolbar" aria-label="Drawing tools">
+      <div class="mk-g">
+        <button type="button" class="mk-b" id="sk-undo" aria-label="Undo" title="Undo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7 4 12l5 5M4.5 12H15a5 5 0 0 1 0 10h-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(0 -3)"/></svg></button>
+        <button type="button" class="mk-b" id="sk-redo" aria-label="Redo" title="Redo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 7 5 5-5 5M19.5 12H9a5 5 0 0 0 0 10h3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(0 -3)"/></svg></button>
+      </div>
+      <span class="mk-sep"></span>
+      <div class="mk-g" role="radiogroup" aria-label="Tool">
+        <button type="button" class="mk-b mk-tool on" data-tool="pen" role="radio" aria-checked="true" aria-label="Pen" title="Pen"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="rotate(40 12 12)"><path d="M9.7 2.8h4.6a1.1 1.1 0 0 1 1.1 1.1V14H8.6V3.9a1.1 1.1 0 0 1 1.1-1.1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.6 6.6h6.8" stroke="currentColor" stroke-width="1.6"/><path d="M8.6 14h6.8L12 21.2z" fill="var(--cur,currentColor)" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></g></svg><span class="mk-lab">Pen</span></button>
+        <button type="button" class="mk-b mk-tool" data-tool="hl" role="radio" aria-checked="false" aria-label="Marker" title="Marker"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="rotate(40 12 12)"><rect x="7.6" y="2.6" width="8.8" height="10.4" rx="1.8" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.2 13h7.6l-1.3 4.4H9.5z" fill="var(--cur,currentColor)" fill-opacity=".45" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9.5 17.4h5V21h-5z" fill="var(--cur,currentColor)" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></g></svg><span class="mk-lab">Marker</span></button>
+        <button type="button" class="mk-b mk-tool" data-tool="erase" role="radio" aria-checked="false" aria-label="Eraser" title="Eraser"><svg viewBox="0 0 24 24" aria-hidden="true"><g transform="rotate(-40 12 12)"><rect x="6.6" y="3.4" width="10.8" height="17.2" rx="2.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6.6 12.6h10.8v5.6a2.4 2.4 0 0 1-2.4 2.4H9a2.4 2.4 0 0 1-2.4-2.4z" fill="var(--red)" fill-opacity=".3" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></g></svg><span class="mk-lab">Eraser</span></button>
+      </div>
+      <span class="mk-sep"></span>
+      <div class="mk-g" role="radiogroup" aria-label="Size">
+        <button type="button" class="mk-b mk-z" data-s="0" role="radio" aria-checked="false" aria-label="Thin" style="--d:3px;--e:10px"><i></i></button>
+        <button type="button" class="mk-b mk-z on" data-s="1" role="radio" aria-checked="true" aria-label="Medium" style="--d:6px;--e:17px"><i></i></button>
+        <button type="button" class="mk-b mk-z" data-s="2" role="radio" aria-checked="false" aria-label="Thick" style="--d:11px;--e:26px"><i></i></button>
+      </div>
+      <span class="mk-sep"></span>
+      <div class="mk-g mk-opts">
+        <button type="button" class="mk-b mk-col" id="sk-col" aria-haspopup="true" aria-expanded="false" aria-label="Colour and paper" title="Colour and paper"><i></i></button>
+        <div class="mk-seg" id="mk-seg" hidden role="radiogroup" aria-label="Eraser type: whole stroke or part of a stroke">
+          <button type="button" class="on" data-er="part" role="radio" aria-checked="true">Part</button>
+          <button type="button" data-er="whole" role="radio" aria-checked="false">Stroke</button>
+        </div>
+      </div>
+      <span class="mk-sep"></span>
+      <div class="mk-g">
+        <button type="button" class="mk-b mk-fin" id="sk-finger" aria-pressed="false" title="Draw with your finger"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.4" fill="currentColor"/></svg><span class="mk-lab">Finger</span></button>
+        <button type="button" class="mk-b mk-bin" id="sk-clear" aria-label="Clear everything" title="Clear everything"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6.5 7l1 13h9l1-13M10 11v6M14 11v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button type="button" class="mk-done" id="pg-done" hidden>Done</button>
+      </div>
+      <div class="mk-pop" id="sk-pop" hidden role="dialog" aria-label="Colour and paper">
+        <div class="sk-cap">Colour</div>
+        <div class="sk-row sk-colors">
+          <button type="button" class="mk-c on" data-c="0" style="--c:var(--ink)" aria-label="Black" aria-pressed="true"></button>
+          <button type="button" class="mk-c" data-c="7" style="--c:#6b7280" aria-label="Grey" aria-pressed="false"></button>
+          <button type="button" class="mk-c" data-c="1" style="--c:#2f6fe0" aria-label="Blue" aria-pressed="false"></button>
+          <button type="button" class="mk-c" data-c="6" style="--c:#0e9aa7" aria-label="Teal" aria-pressed="false"></button>
+          <button type="button" class="mk-c" data-c="3" style="--c:#12a06e" aria-label="Green" aria-pressed="false"></button>
+          <button type="button" class="mk-c" data-c="4" style="--c:#f08a00" aria-label="Orange" aria-pressed="false"></button>
+          <button type="button" class="mk-c" data-c="2" style="--c:#e03e3e" aria-label="Red" aria-pressed="false"></button>
+          <button type="button" class="mk-c" data-c="5" style="--c:#8a4fd8" aria-label="Purple" aria-pressed="false"></button>
+        </div>
+        <div class="mk-paper">
+          <div class="sk-cap">Paper</div>
+          <div class="sk-row sk-papers">
+            <button type="button" class="sk-p" data-p="blank" aria-label="Blank paper" aria-pressed="false"><i></i><span>Blank</span></button>
+            <button type="button" class="sk-p" data-p="lined" aria-label="Lined paper" aria-pressed="false"><i></i><span>Lined</span></button>
+            <button type="button" class="sk-p on" data-p="grid" aria-label="Graph paper" aria-pressed="true"><i></i><span>Graph</span></button>
+            <button type="button" class="sk-p" data-p="dots" aria-label="Dotted paper" aria-pressed="false"><i></i><span>Dots</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="nd-list" id="nd-list" hidden></div>
   <div class="nd-foot" id="nd-foot"><button class="btn" id="nd-copy" type="button">Copy</button><span id="nd-count"></span><span id="nd-status">Saved on this device</span></div>
 </aside>

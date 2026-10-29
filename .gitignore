@@ -1,6 +1,9 @@
-build/out.html
-build/src/
-tools/shots/
-__pycache__/
 *.bak*
 .DS_Store
+__pycache__/
+build/new/
+build/out*.html
+build/out.html
+build/src/
+dist/
+tools/shots/

@@ -5,7 +5,7 @@ head=rd('old_head_and_script.html')
 css=rd('shell/v2.css')+'\n'+rd('shell/theme.css')+'\n'+rd('shell/apple.css')
 assert head.count('</style>')==1
 head=head.replace('</style>',css+'\n</style>')
-man=json.load(open(os.path.join(B,'old/manifest.json')))
+man=json.load(open(os.path.join(B,'old/manifest.json'))) if os.path.exists(os.path.join(B,'old/manifest.json')) else {}
 # tab labels (can be overridden by new/<course>/tabs.json)
 order=['micro','mkt','hr','sa','phl']
 parts=[head]
@@ -16,8 +16,8 @@ parts.append('''<div class="viz-root">
       <div class="brand">Semester 5<small>Study Maps · George Brown College</small></div>
       <button class="picker" id="course-pick" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="coursetabs"><i class="pd"></i><span class="pn">Microeconomics</span><span class="pc" aria-hidden="true">&#9662;</span></button>
       <span class="spacer"></span>
-      <button class="tb-btn" id="open-sheet" type="button"><span class="long">Cheat sheet</span><span class="short">Sheet</span></button>
-      <button class="tb-btn primary" id="open-exam" type="button">Exam<span class="long"> mode</span> <span class="badge" id="exam-due" hidden>0</span></button>
+      <button class="tb-btn" id="open-sheet" type="button" aria-label="Cheat sheet"><span class="long">Cheat sheet</span><span class="short">Sheet</span><svg class="tb-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4M10 12h6M10 16h6"/></svg></button>
+      <button class="tb-btn primary" id="open-exam" type="button" aria-label="Exam mode"><span class="txt">Exam<span class="long"> mode</span></span><svg class="tb-ico" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M8.5 13l2.2 2.2L15.5 10"/></svg> <span class="badge" id="exam-due" hidden>0</span></button>
     </div>
     <nav class="coursetabs" id="coursetabs" aria-label="Courses">
       <button class="coursetab plan" data-course="plan"><span class="dot"></span>Plan</button>
@@ -39,9 +39,10 @@ for c in order:
     if os.path.exists(tabs_new):
         tabs=json.load(open(tabs_new))   # list of [week,label]
     else:
-        tabs=man[c]['tabs']
-    hd=rd('old/%s/_head.html'%c)
-    if os.path.exists(os.path.join(newdir,'_head.html')): hd=open(os.path.join(newdir,'_head.html'),encoding='utf-8').read()
+        tabs=man[c]['tabs']   # (or put a tabs.json in build/new/<course>/ and skip build/old/ completely)
+    if os.path.exists(os.path.join(newdir,'links.html')) and not any(w=='links' for w,_ in tabs):
+        tabs=list(tabs)+[['links','Connections']]   # last tab of every course: how the chapters connect
+    hd=open(os.path.join(newdir,'_head.html'),encoding='utf-8').read() if os.path.exists(os.path.join(newdir,'_head.html')) else rd('old/%s/_head.html'%c)
     parts.append('  <!-- ===== %s ===== -->\n  '%c.upper()+hd)
     parts.append('    <nav class="weektabs" data-scope="%s">\n'%c)
     for i,(w,l) in enumerate(tabs):
@@ -49,14 +50,16 @@ for c in order:
     parts.append('    </nav>\n\n')
     n_new=0
     for i,(w,l) in enumerate(tabs):
-        p_new=os.path.join(newdir,w+'.html')
-        if os.path.exists(p_new): h=open(p_new,encoding='utf-8').read(); n_new+=1
+        p_new=os.path.join(newdir,w+'.html'); p_txt=os.path.join(newdir,w+'.txt')
+        if os.path.exists(p_txt):   # compact panel source (see docs/compact-format.md); wins over .html
+            sys.path.insert(0,os.path.join(B,'..','tools')); import panelc
+            h=panelc.compile_text(open(p_txt,encoding='utf-8').read()); n_new+=1
+        elif os.path.exists(p_new): h=open(p_new,encoding='utf-8').read(); n_new+=1
         else: h=rd('old/%s/%s.html'%(c,w))
         # first panel visible, others hidden
         h=re.sub(r'<div class="week-panel[^"]*" data-week="%s"[^>]*>'%re.escape(w),'<div class="week-panel%s" data-week="%s"%s>'%(' active' if i==0 else '',w,'' if i==0 else ' hidden'),h,count=1)
         parts.append('    '+h.strip()+'\n\n')
-    tl=rd('old/%s/_tail.html'%c)
-    if os.path.exists(os.path.join(newdir,'_tail.html')): tl=open(os.path.join(newdir,'_tail.html'),encoding='utf-8').read()
+    tl=open(os.path.join(newdir,'_tail.html'),encoding='utf-8').read() if os.path.exists(os.path.join(newdir,'_tail.html')) else rd('old/%s/_tail.html'%c)
     parts.append(tl+'\n')
     stats[c]=(len(tabs),n_new)
 parts.append('''  </main>

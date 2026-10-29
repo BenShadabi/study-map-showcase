@@ -2,7 +2,7 @@ import asyncio,json
 from playwright.async_api import async_playwright
 import os
 URL="file://"+os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),"dist","index.html")
-P=[('micro',w) for w in ['ch1','ch2','ch3','ch4']]+[('mkt',w) for w in ['w1','w2','w3','w4']]+[('hr',w) for w in ['ch1','ch2','ch3','ch4','ch5','ch6']]+[('sa',w) for w in ['w1','w2','w3','w4']]+[('phl',w) for w in ['w12','w3','w4','w5']]
+P=[('micro',w) for w in ['ch1','ch2','ch3','ch4']]+[('mkt',w) for w in ['w1','w2','w3','w4']]+[('hr',w) for w in ['ch1','ch2','ch3','ch4','ch5','ch6']]+[('sa',w) for w in ['w1','w2','w3','w4']]+[('phl',w) for w in ['w12','w3','w4','w5']]+[(c,'links') for c in ['micro','mkt','hr','sa','phl']]
 async def main():
     async with async_playwright() as p:
         b=await p.chromium.launch()

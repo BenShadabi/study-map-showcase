@@ -1,0 +1,52 @@
+<div class="hlbar" id="hlbar" hidden role="toolbar" aria-label="Highlighter">
+  <button class="hlc" type="button" data-c="y" style="--hc:var(--hl-y-s)" aria-label="Yellow highlight"><i></i></button>
+  <button class="hlc" type="button" data-c="g" style="--hc:var(--hl-g-s)" aria-label="Green highlight"><i></i></button>
+  <button class="hlc" type="button" data-c="p" style="--hc:var(--hl-p-s)" aria-label="Pink highlight"><i></i></button>
+  <button class="hlc" type="button" data-c="b" style="--hc:var(--hl-b-s)" aria-label="Blue highlight"><i></i></button>
+  <span class="hlsep"></span>
+  <button class="hlc" type="button" data-c="w1" aria-label="Pink dotted washi tape"><i></i></button>
+  <button class="hlc" type="button" data-c="w2" aria-label="Mint striped washi tape"><i></i></button>
+  <button class="hlc" type="button" data-c="w3" aria-label="Lilac check washi tape"><i></i></button>
+  <span class="hlsep"></span>
+  <button class="hlx" type="button" data-c="x" aria-label="Remove highlight"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>Clear</button>
+</div>
+
+<div class="sx" id="sx" role="dialog" aria-modal="true" aria-label="Search the notes">
+  <div class="sx-bg" id="sx-bg"></div>
+  <div class="sx-box">
+    <div class="sx-top">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input class="sx-in" id="sx-in" type="text" inputmode="search" enterkeyhint="search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search every course, chapter and term" aria-label="Search" aria-controls="sx-list" role="combobox" aria-expanded="true" aria-autocomplete="list">
+      <button class="sx-x" id="sx-x" type="button">Close</button>
+    </div>
+    <div class="sx-chips" id="sx-chips" role="group" aria-label="Limit to a course"></div>
+    <div class="sx-body" id="sx-body">
+      <ul class="sx-list" id="sx-list" role="listbox" aria-label="Results"></ul>
+      <div class="sx-empty" id="sx-empty"></div>
+    </div>
+    <div class="sx-foot"><span class="keys"><kbd>↑</kbd><kbd>↓</kbd>move <kbd>Enter</kbd>open <kbd>Esc</kbd>close</span><span class="sx-n" id="sx-n" aria-live="polite"></span></div>
+  </div>
+</div>
+<button class="ask-fab" id="ask-fab" type="button" hidden aria-haspopup="dialog" aria-expanded="false" aria-label="Ask AI" title="Ask AI"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5l1.7 4.8 4.8 1.7-4.8 1.7L10 15.5l-1.7-4.8L3.5 9l4.8-1.7z" fill="currentColor"/><path d="M15.5 13.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z" fill="currentColor"/></svg><span class="lbl">Ask AI</span></button>
+
+<aside class="ask" id="ask" hidden aria-label="Ask AI">
+  <div class="ask-bg" id="ask-bg"></div>
+  <div class="ask-box" role="dialog" aria-label="Ask AI">
+    <div class="ask-grab" aria-hidden="true"></div>
+    <div class="ask-h">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5l1.7 4.8 4.8 1.7-4.8 1.7L10 15.5l-1.7-4.8L3.5 9l4.8-1.7z" fill="currentColor"/><path d="M15.5 13.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z" fill="currentColor"/></svg>
+      <div class="ask-t"><b>Ask AI</b><small>Chapter helper</small></div>
+      <button class="ask-btn" id="ask-new" type="button" hidden>New chat</button>
+      <button class="ask-btn" id="ask-x" type="button">Close</button>
+    </div>
+    <div class="ask-body" id="ask-body" aria-live="polite"></div>
+    <div class="ask-note">Uses your notes plus general knowledge. Check important things against your slides.</div>
+    <form class="ask-in" id="ask-form" autocomplete="off">
+      <textarea id="ask-q" rows="1" placeholder="Ask about this chapter…" aria-label="Your question" enterkeyhint="send"></textarea>
+      <button type="submit" id="ask-send" aria-label="Send">↑</button>
+    </form>
+  </div>
+</aside>
+
+<div class="kb-bg" id="kb" hidden role="dialog" aria-modal="true" aria-label="Keyboard shortcuts"></div>
+
